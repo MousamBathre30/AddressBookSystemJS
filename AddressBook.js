@@ -158,6 +158,10 @@ class AddressBooksMethods {
         }
     }
 
+    totalContacts(){
+        console.log("The total number of contacts is present")
+        console.log(this.contacts.length);
+    }
   
 }
 
@@ -178,3 +182,8 @@ addressBookMethods.findOrEdit("John","Mousam");
 // find contacts and delete the contacts 
 
 addressBookMethods.findOrDelete("Mousam");
+
+// ability to find the number of contats 
+
+addressBookMethods.totalContacts();
+
