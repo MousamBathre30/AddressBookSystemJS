@@ -1,3 +1,4 @@
+// Address class to store individual contact details
 class Address {
     constructor(firstName, lastName, address, city, state, zip, phoneNumber, email) {
         this.firstName = firstName;
@@ -113,4 +114,40 @@ class Address {
             throw "Email is invalid; it must be in a valid format (e.g., example@example.com).";
         }
     }
+
+    toString() {
+        return `Name: ${this.firstName} ${this.lastName}, 
+        Address: ${this.address}, ${this.city}, ${this.state} - ${this.zip}, 
+        Phone: ${this.phoneNumber}, Email: ${this.email}`;
+    }
 }
+
+// AddressBooksMethods to manage contacts
+class AddressBooksMethods {
+    constructor() {
+        this.contacts = []; // Initialize the contacts array
+    }
+
+    addContact(contact) {
+        if (contact instanceof Address) {
+            this.contacts.push(contact);
+            console.log(" Contact added successfully!");
+        } else {
+            console.log(" Invalid contact. Please provide a valid Address object.");
+        }
+    }
+
+  
+}
+
+//  Create an instance of AddressBooksMethods
+let addressBookMethods = new AddressBooksMethods();
+
+//  Create contact instances
+let contact1 = new Address("John", "Doe", "123 Main St", "New York", "NY", "10001", "1234567890", "john.doe@example.com");
+let contact2 = new Address("Jane", "Smith", "456 Elm St", "Los Angeles", "CA", "90001", "9876543210", "jane.smith@example.com");
+
+//  Add contacts to the address book
+addressBookMethods.addContact(contact1);
+addressBookMethods.addContact(contact2);
+
