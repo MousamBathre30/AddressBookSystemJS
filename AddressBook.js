@@ -206,6 +206,12 @@ getPhoneNumbersByState(state) {
         .map(contact => contact.phoneNumber);
 }
 
+// sort by the first name 
+sortContactsByName() {
+    this.contacts.sort((a, b) => a.firstName.localeCompare(b.firstName));
+    console.log("Contacts sorted alphabetically by first name.");
+}
+
     
 }
 
@@ -246,3 +252,8 @@ console.log(addressBookMethods.findAllContactsByCityState("New York", "NY"));
 
 console.log("Phone Numbers in New York:", addressBookMethods.getPhoneNumbersByCity("New York"));
 console.log("Phone Numbers in NY State:", addressBookMethods.getPhoneNumbersByState("NY"));
+
+
+// sort by the name 
+
+console.log(addressBookMethods.sortContactsByName());
