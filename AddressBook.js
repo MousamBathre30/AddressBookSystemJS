@@ -179,7 +179,13 @@ class AddressBooksMethods {
         let isDuplicate = this.contacts.filter(c => c.city === contact.city || c.state == contact.state);
         return isDuplicate.length > 0;
     }
-  
+     
+    // find contact by city and state
+
+    findContactByCityState(city, state) {
+        return this.contacts.find(c => c.city === city && c.state === state) || null;
+    }
+    
 }
 
 //  Create an instance of AddressBooksMethods
@@ -207,3 +213,7 @@ addressBookMethods.totalContacts();
 // ability to check for the city and state
 
 console.log(addressBookMethods.checkStateCity(contact1));
+
+// get the contacts by city and state 
+
+console.log(addressBookMethods.findContactByCityState("New York" , "NY"));
