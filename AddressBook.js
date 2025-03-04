@@ -172,6 +172,13 @@ class AddressBooksMethods {
         let isDuplicate = this.contacts.map(c => c.firstName + c.lastName + c.phoneNumber).filter(id => id === (contact.firstName + contact.lastName + contact.phoneNumber)).length > 0;
         return isDuplicate;
     }
+
+    // check for the state and city 
+
+    checkStateCity(contact){
+        let isDuplicate = this.contacts.filter(c => c.city === contact.city || c.state == contact.state);
+        return isDuplicate.length > 0;
+    }
   
 }
 
@@ -197,3 +204,6 @@ addressBookMethods.findOrDelete("Mousam");
 
 addressBookMethods.totalContacts();
 
+// ability to check for the city and state
+
+console.log(addressBookMethods.checkStateCity(contact1));
