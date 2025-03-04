@@ -191,7 +191,21 @@ class AddressBooksMethods {
     findAllContactsByCityState(city, state) {
         return this.contacts.filter(c => c.city === city && c.state === state);
     }
-    
+
+    // get the phone number by city 
+
+    getPhoneNumbersByCity(city) {
+    return this.contacts
+        .filter(contact => contact.city === city)
+        .map(contact => contact.phoneNumber);
+}
+   // get the phone number by state
+getPhoneNumbersByState(state) {
+    return this.contacts
+        .filter(contact => contact.state === state)
+        .map(contact => contact.phoneNumber);
+}
+
     
 }
 
@@ -227,3 +241,8 @@ console.log(addressBookMethods.findContactByCityState("New York" , "NY"));
 
 // find all contacts 
 console.log(addressBookMethods.findAllContactsByCityState("New York", "NY")); 
+
+// get the phone number by state and city 
+
+console.log("Phone Numbers in New York:", addressBookMethods.getPhoneNumbersByCity("New York"));
+console.log("Phone Numbers in NY State:", addressBookMethods.getPhoneNumbersByState("NY"));
