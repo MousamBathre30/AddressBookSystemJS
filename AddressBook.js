@@ -147,7 +147,16 @@ class AddressBooksMethods {
             console.log(`Contact with name "${oldName}" not found.`);
         }
     }
+    findOrDelete(oldName) {
+        let contact = this.contacts.find(contact => contact.firstName === oldName);
     
+        if (contact !==-1) {
+            this.contacts.splice(contact,1);
+            console.log(`Contact Deleted: ${oldName}`);
+        } else {
+            console.log(`Contact with name "${oldName}" not found.`);
+        }
+    }
 
   
 }
@@ -165,3 +174,7 @@ addressBookMethods.addContact(contact2);
 
 // find contacts and edit the contacts 
 addressBookMethods.findOrEdit("John","Mousam");
+
+// find contacts and delete the contacts 
+
+addressBookMethods.findOrDelete("Mousam");
