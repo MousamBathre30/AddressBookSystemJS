@@ -137,6 +137,18 @@ class AddressBooksMethods {
         }
     }
 
+    findOrEdit(oldName, newName) {
+        let contact = this.contacts.find(contact => contact.firstName === oldName);
+    
+        if (contact) {
+            contact.firstName = newName;
+            console.log(`Contact updated: ${oldName} → ${newName}`);
+        } else {
+            console.log(`Contact with name "${oldName}" not found.`);
+        }
+    }
+    
+
   
 }
 
@@ -151,3 +163,5 @@ let contact2 = new Address("Jane", "Smith", "456 Elm St", "Los Angeles", "CA", "
 addressBookMethods.addContact(contact1);
 addressBookMethods.addContact(contact2);
 
+// find contacts and edit the contacts 
+addressBookMethods.findOrEdit("John","Mousam");
