@@ -185,6 +185,13 @@ class AddressBooksMethods {
     findContactByCityState(city, state) {
         return this.contacts.find(c => c.city === city && c.state === state) || null;
     }
+
+    // find all person matching the state and city 
+
+    findAllContactsByCityState(city, state) {
+        return this.contacts.filter(c => c.city === city && c.state === state);
+    }
+    
     
 }
 
@@ -217,3 +224,6 @@ console.log(addressBookMethods.checkStateCity(contact1));
 // get the contacts by city and state 
 
 console.log(addressBookMethods.findContactByCityState("New York" , "NY"));
+
+// find all contacts 
+console.log(addressBookMethods.findAllContactsByCityState("New York", "NY")); 
