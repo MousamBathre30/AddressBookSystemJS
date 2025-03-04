@@ -130,6 +130,9 @@ class AddressBooksMethods {
 
     addContact(contact) {
         if (contact instanceof Address) {
+            if(this.checkDuplicate(contact)){
+                console.log("Duplicate accurs ")
+            }
             this.contacts.push(contact);
             console.log(" Contact added successfully!");
         } else {
@@ -161,6 +164,13 @@ class AddressBooksMethods {
     totalContacts(){
         console.log("The total number of contacts is present")
         console.log(this.contacts.length);
+    }
+
+    // check Duplicats 
+
+    checkDuplicate(contact){
+        let isDuplicate = this.contacts.map(c => c.firstName + c.lastName + c.phoneNumber).filter(id => id === (contact.firstName + contact.lastName + contact.phoneNumber)).length > 0;
+        return isDuplicate;
     }
   
 }
