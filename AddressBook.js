@@ -212,6 +212,24 @@ sortContactsByName() {
     console.log("Contacts sorted alphabetically by first name.");
 }
 
+// sort by the city 
+sortContactsByCity() {
+    this.contacts.sort((a, b) => a.city.localeCompare(b.city));
+    console.log("Contacts sorted alphabetically by city.");
+}
+
+// sort by the state
+sortContactsByState() {
+    this.contacts.sort((a, b) => a.state.localeCompare(b.state));
+    console.log("Contacts sorted alphabetically by state.");
+}
+
+// sort by the zip 
+sortContactsByZip() {
+    this.contacts.sort((a, b) => a.zip.localeCompare(b.zip));
+    console.log("Contacts sorted numerically by ZIP code.");
+}
+
     
 }
 
@@ -257,3 +275,16 @@ console.log("Phone Numbers in NY State:", addressBookMethods.getPhoneNumbersBySt
 // sort by the name 
 
 console.log(addressBookMethods.sortContactsByName());
+
+// sort by the city 
+addressBookMethods.sortContactsByCity();
+console.log("Sorted by City:", addressBookMethods.contacts);
+
+
+// sort by the state 
+addressBookMethods.sortContactsByState();
+console.log("Sorted by State:", addressBookMethods.contacts);
+
+// sort by the zip 
+addressBookMethods.sortContactsByZip();
+console.log("Sorted by Zip:", addressBookMethods.contacts);
